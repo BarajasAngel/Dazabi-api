@@ -24,7 +24,7 @@ router.get('/:correo/:contraseña', (req, res) => {
         "contraseña": req.params.contraseña
     }
 }; 
-  mysqlConnection.query('SELECT * FROM TB_USER WHERE CORREO = ? AND CONTRASEÑA', [query.parametro.correo],[query.parametro.contraseña], (err, rows, fields) => {
+  mysqlConnection.query('SELECT * FROM TB_USER WHERE CORREO = ? AND CONTRASEÑA = ?', [query.parametro.correo,query.parametro.contraseña], (err, rows, fields) => {
     if (!err) {
       res.json(rows[0]);
     } else {
@@ -32,6 +32,7 @@ router.get('/:correo/:contraseña', (req, res) => {
     }
   });
 });
+
 
 //GET An User
 router.get('/:id', (req, res) => {
