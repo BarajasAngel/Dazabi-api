@@ -14,6 +14,20 @@ router.get('/', (req, res) => {
   });  
 });
 
+//Get User white correo y pass
+
+
+router.post('/', (req, res) => {
+  const {correo, contraseña} = req.body;
+  mysqlConnection.query('SELECT * FROM TB_USER WHERE CORREO = ? AND CONTRASEÑA = ?', [correo],[contraseña], (err, rows, fields) => {
+    if (!err) {
+      res.json(rows[0]);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 //GET An User
 router.get('/:id', (req, res) => {
   const { id } = req.params; 
