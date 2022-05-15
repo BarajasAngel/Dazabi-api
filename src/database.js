@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 
-const mysqlConnection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'WASTE2MONEYDB',
-  multipleStatements: true
+var mysqlConnection = mysql.createConnection({
+  host: "dazabiproyect.mysql.database.azure.com", 
+  user: "Administrador@dazabiproyect", 
+  password: "Babasonicos15", 
+  database: "WASTE2MONEYDB", 
+  port: 3306
 });
 
 mysqlConnection.connect(function (err) {
